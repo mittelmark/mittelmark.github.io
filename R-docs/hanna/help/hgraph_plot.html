@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: plot an adjacency matrix representing a graph</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for hgraph$plot {hanna}"><tr><td>hgraph$plot {hanna}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> plot an adjacency matrix representing a graph </h2>
+
+<h3>Description</h3>
+
+ 
+<p>This function plots an adjacency matrix representing an undirected or 
+directed graph using different layout mechanisms. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>`hgraph$plot(x, layout='sam', 
+         vertex.size=1, vertex.labels=NULL, vertex.color="grey80", 
+         vertex.cex=1, vertex.pch=19, 
+         edge.color="grey40", edge.lty=1, edge.text=NULL, edge.cex=1, 
+         edge.pch=0, edge.lwd=3,weighted=FALSE, 
+         star.center=NULL,...)` 
+</pre>
+
+
+<h3>Arguments</h3>
+
+ 
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p> an adjacency matrix </p>
+</td></tr> 
+<tr valign="top"><td><code>layout</code></td>
+<td>
+<p>either 'mds','sam', 'circle', 'star', 'graphviz' or an two column matrix or data frame with x and y coordinates, if 'graphviz' only teh default output of the graphviz tools can be shown, default: 'sam'</p>
+</td></tr> 
+<tr valign="top"><td><code>vertex.size</code></td>
+<td>
+<p>the size of the vertex circles, default: 1</p>
+</td></tr> 
+<tr valign="top"><td><code>vertex.labels</code></td>
+<td>
+<p>alternative names shown in the vertices, if not given using the rownames of the adjacency matrix, default: NULL</p>
+</td></tr> 
+<tr valign="top"><td><code>vertex.color</code></td>
+<td>
+<p>the color of the vertices, default: 'salmon'</p>
+</td></tr> 
+<tr valign="top"><td><code>vertex.cex</code></td>
+<td>
+<p>the relative font size of the vertice labels, default: 1</p>
+</td></tr> 
+<tr valign="top"><td><code>vertex.pch</code></td>
+<td>
+<p>plotting character for the vertices, default: 19</p>
+</td></tr> 
+<tr valign="top"><td><code>edge.color</code></td>
+<td>
+<p>either a single color or a matrix with color names of the same same shape as the adjacency matrix, default: 'grey40'</p>
+</td></tr> 
+<tr valign="top"><td><code>edge.lty</code></td>
+<td>
+<p>either a single integer 1-4 representing the line type or a matrix with integers in this range of the same same shape as the adjacency matrix, default: 1</p>
+</td></tr> 
+<tr valign="top"><td><code>edge.text</code></td>
+<td>
+<p>optional matrix to give edge labels, default: NULL</p>
+</td></tr> 
+<tr valign="top"><td><code>edge.cex</code></td>
+<td>
+<p>optional character expansion for the edge label and the underlying plotting character, default: 1</p>
+</td></tr> 
+<tr valign="top"><td><code>edge.pch</code></td>
+<td>
+<p>optional character code for the edge.text, default: 0</p>
+</td></tr> 
+<tr valign="top"><td><code>edge.lwd</code></td>
+<td>
+<p>the line width for the edges</p>
+</td></tr> 
+<tr valign="top"><td><code>weighted</code></td>
+<td>
+<p>should the edges be shown with different weights given within the adjacency matrix</p>
+</td></tr> 
+<tr valign="top"><td><code>star.center</code></td>
+<td>
+<p>for layout 'star' the central node, default: NULL</p>
+</td></tr> 
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>arguments delegated to the plot function</p>
+</td></tr> 
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>A=hgraph$graph() 
+col=hgraph$colors(A) 
+hgraph$plot(A,vertex.color=col) 
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hanna</em> version 0.1 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

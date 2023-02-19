@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: calculate a plot layout for an adjacency matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for hgraph$layout {hanna}"><tr><td>hgraph$layout {hanna}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>calculate a plot layout for an adjacency matrix </h2>
+
+<h3>Description</h3>
+
+ 
+<p>This function is used to create a layout for a given graph. 
+</p>
+<p>There are a few algorithms available such as MDS based ones like 'mds' or 'sam' 
+and circular layouts like 'circle' or 'star', furthermore there is  
+the possibility to use an interactive mode where the user clicks  
+first on a node and then on the space where the node should be moved.  
+This interactive mode can be finished by a right click. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>`hgraph$layout(x,mode='sam', noise=FALSE, star.center=NULL, interactive=FALSE)`</pre>
+
+
+<h3>Arguments</h3>
+
+ 
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>an adjacency matrix or an adjacency list</p>
+</td></tr> 
+<tr valign="top"><td><code>mode</code></td>
+<td>
+<p>either 'mds','sam', 'circle', 'star', default: 'sam'</p>
+</td></tr> 
+<tr valign="top"><td><code>noise</code></td>
+<td>
+<p>should some scatter been added to the given coordinates, default: FALSE</p>
+</td></tr> 
+<tr valign="top"><td><code>star.center</code></td>
+<td>
+<p>the node which should be used as center of the star, if not given the first node in the graph will be in the center, default: NULL</p>
+</td></tr> 
+<tr valign="top"><td><code>interactive</code></td>
+<td>
+<p>should be there an interactive clicking to mode the nodes in the layout, default: FALSE</p>
+</td></tr> 
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>A=hgraph$graph() 
+lay=hgraph$layout(A) 
+plot(lay, pch=19,col="salmon",cex=5,xlab="",ylab="",axes=FALSE) 
+text(lay,rownames(A)) 
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hanna</em> version 0.1 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

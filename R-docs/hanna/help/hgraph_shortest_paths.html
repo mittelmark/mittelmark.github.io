@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculate the shortest path between all nodes of a graph.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for hgraph$shortest_paths {hanna}"><tr><td>hgraph$shortest_paths {hanna}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Calculate the shortest path between all nodes of a graph. </h2>
+
+<h3>Description</h3>
+
+ 
+<p>This function calculates the shortest path between all pair of nodes. 
+In unconnected graphs it returns Inf, if the connected option is set to TRUE 
+it returns the average path length for the connected nodes, you can as well 
+give a value which should be added instead of Inf values, usually this is 
+the number of nodes. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>`hgraph$shortest_paths(x,mode="directed",weighted=FALSE,FUN=mean)`</pre>
+
+
+<h3>Arguments</h3>
+
+ 
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p> adjacency matrix </p>
+</td></tr> 
+<tr valign="top"><td><code>mode</code></td>
+<td>
+<p> should be either &quot;directed&quot; or &quot;undirected&quot;, default: &quot;directed&quot;</p>
+</td></tr> 
+<tr valign="top"><td><code>weighted</code></td>
+<td>
+<p> should be taken as weighted graph, default: FALSE</p>
+</td></tr> 
+<tr valign="top"><td><code>FUN</code></td>
+<td>
+<p>for directed graphs with multiedges how to compute the entry in undirected graphs</p>
+</td></tr> 
+</table>
+
+
+<h3>Value</h3>
+
+<p> matrix with the pairwise path lengths </p>
+
+
+<h3>Examples</h3>
+
+<pre>set.seed(123) 
+A=matrix(rbinom(25,1,p=0.3),ncol=5) 
+colnames(A)=rownames(A)=LETTERS[1:5] 
+A[lower.tri(A)]=t(A)[lower.tri(A)] 
+A 
+hgraph$shortest_paths(A,mode="undirected") 
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hanna</em> version 0.1 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

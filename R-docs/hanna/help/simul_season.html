@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create matches for everyone against everyone using the given...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for simul$season {hanna}"><tr><td>simul$season {hanna}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Create matches for everyone against everyone using the given model. </h2>
+
+<h3>Description</h3>
+
+ 
+<p>This function creates pairings for a tournament where in every round. 
+The actual match will give chances based on a certain amount of tokens in dependence  
+of the given model. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre> `simul$season(x,token=rep(length(x),length(x)),model="null", 
+                           min.value=4,memory=NULL,memory.length=1)` </pre>
+
+
+<h3>Arguments</h3>
+
+ 
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p> vector of teams </p>
+</td></tr> 
+<tr valign="top"><td><code>token</code></td>
+<td>
+<p> vector of token for each team, which might influence the match outcone, depending on the given model, defaults: 5 </p>
+</td></tr> 
+<tr valign="top"><td><code>model</code></td>
+<td>
+<p> the model given as string, possible values are 'null', 'chance','gain' or 'last', default: 'null' </p>
+</td></tr> 
+<tr valign="top"><td><code>min.value</code></td>
+<td>
+<p> for the model 'last' how low is the minimal value for each team, default: 4</p>
+</td></tr> 
+<tr valign="top"><td><code>memory</code></td>
+<td>
+<p>optional vector of last results for each agent</p>
+</td></tr> 
+<tr valign="top"><td><code>memory.length</code></td>
+<td>
+<p>how many of last results should be stored, default: 1</p>
+</td></tr> 
+</table>
+
+
+<h3>Details</h3>
+
+ 
+<p>This function allows you to create matches for all against all in a season and performs the matches 
+based on the given model and the current number of tokens for each team. 
+</p>
+
+
+<h3>Value</h3>
+
+<p>list with three components:  
+</p>
+ 
+<ul>
+<li><p>Mmatrix of results where 1 is a win, -1 is a loss and 0 is a draw 
+</p>
+</li>
+<li><p>tokenvector of current tokens for each team 
+</p>
+</li>
+<li><p>modelthe choosen model 
+</p>
+</li>
+<li><p>memorylist with last results for each agent 
+</p>
+</li></ul>
+ 
+
+
+<h3>Examples</h3>
+
+<pre>set.seed(123) 
+res=simul$season(LETTERS[1:6],model="null")  
+res 
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hanna</em> version 0.1 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

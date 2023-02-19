@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Calculate the number of two and tri edge triads.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for hgraph$triads {hanna}"><tr><td>hgraph$triads {hanna}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Calculate the number of two and tri edge triads. </h2>
+
+<h3>Description</h3>
+
+ 
+<p>This function calculates the number of two and tri edge triads for 
+directed graphs.  
+</p>
+<p>The following triads are possible: 
+</p>
+ 
+<ul>
+<li><p> double-dominant (dd) A-&gt;B; A-&gt;C 
+</p>
+</li>
+<li><p> double-subordinate (ds) A-&gt;B; C-&gt;B 
+</p>
+</li>
+<li><p> pass-along (pa) A-&gt;B-&gt;C 
+</p>
+</li>
+<li><p> transitive (tr) A-&gt;B; A-&gt;C ; B-&gt;C 
+</p>
+</li>
+<li><p> cycle (cy) A-&gt;B-&gt;C-&gt;A 
+</p>
+</li></ul>
+ 
+
+
+<h3>Usage</h3>
+
+<pre>`hgraph$triads(x,percent=FALSE)`</pre>
+
+
+<h3>Arguments</h3>
+
+ 
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p> adjacency matrix </p>
+</td></tr> 
+<tr valign="top"><td><code>percent</code></td>
+<td>
+<p> should the results be return not wihh total numbers but in percent, default: FALSE</p>
+</td></tr> 
+</table>
+
+
+<h3>Value</h3>
+
+<p> list object with the following components: 
+</p>
+ 
+<ul>
+<li><p>ddnumber of double dominant triads 
+</p>
+</li>
+<li><p>dsnumber of double subordinate triads 
+</p>
+</li>
+<li><p>panumber of pass-along triads 
+</p>
+</li>
+<li><p>trnumber of transitive triads 
+</p>
+</li>
+<li><p>cynumber of cycle triads 
+</p>
+</li></ul>
+ 
+
+
+<h3>Examples</h3>
+
+<pre>A = matrix(rbinom(49,1,p=0.3),nrow=7) 
+diag(A)=0 
+A[lower.tri(A)]=0 
+rownames(A)=colnames(A)=LETTERS[1:7] 
+hgraph$plot(A) 
+unlist(hgraph$triads(A)) 
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>hanna</em> version 0.1 <a href="00Index.html">Index</a>]</div>
+</div></body></html>
